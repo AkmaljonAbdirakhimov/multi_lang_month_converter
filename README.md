@@ -1,39 +1,51 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Multi Lang Month Converter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Dart package to convert month numbers to names in Uzbek, Russian, and English.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Converts month numbers (1-12) to month names in Uzbek, Russian, and English.
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package, add `multi_lang_month_converter` as a dependency in your `pubspec.yaml` file:
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  multi_lang_month_converter: ^1.0.0
 ```
 
-## Additional information
+- Then run dart pub get to install the package.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Usage
+- Here is an example of how to use the MonthConverter class:
+
+```dart
+import 'package:multi_lang_month_converter/month_converter.dart';
+
+void main() {
+  final converter = MonthConverter();
+
+  print(converter.convert(1, 'uz')); // Yanvar
+  print(converter.convert(1, 'ru')); // Январь
+  print(converter.convert(1, 'en')); // January
+}
+```
+
+## API MonthConverter
+```String convert(int monthNumber, String languageCode)```
+
+Converts the month number to the month name in the specified language.
+
+```monthNumber```: The month number (1-12).
+
+```languageCode```: The language code ('uz', 'ru', 'en').
+Returns the month name in the specified language. 
+
+Throws an ArgumentError if the month number or language code is invalid.
+
+## Contributing
+Contributions are welcome! Please feel free to open a pull request or file an issue on GitHub.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
